@@ -11,12 +11,22 @@ import ResultScreen from './src/screens/ResultScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RootStackParamList} from './src/types/RootStackParamList';
+import {theme} from './src/theme/theme';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 function App(): JSX.Element {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SearchScreen">
+      <Stack.Navigator
+        initialRouteName="SearchScreen"
+        screenOptions={{
+          contentStyle: {
+            backgroundColor: `${theme.colors.black}`,
+            padding: 10,
+            display: 'flex',
+            justifyContent: 'center',
+          },
+        }}>
         <Stack.Screen
           name="SearchScreen"
           component={SearchScreen}

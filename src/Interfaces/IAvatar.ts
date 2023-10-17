@@ -1,3 +1,4 @@
-export interface AvatarProps {
+export interface IAvatar {
   url: string;
+  size: number;
 }

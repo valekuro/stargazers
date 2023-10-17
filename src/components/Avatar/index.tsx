@@ -1,17 +1,16 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
-import {AvatarProps} from '../../Interfaces/IAvatar';
+import {IAvatar} from '../../Interfaces/IAvatar';
 
-export default function Avatar({url}: AvatarProps) {
-  console.log(url);
+export default function Avatar({url, size}: IAvatar) {
   return (
-    <View style={imageStyles(26).avatarContainer}>
+    <View style={imageStyles(size).avatarContainer}>
       <View>
         <Image
           source={{
             uri: url,
           }}
-          style={imageStyles(26).imageContainer}
+          style={imageStyles(size).imageContainer}
         />
       </View>
     </View>
@@ -24,14 +23,6 @@ const imageStyles = (size: number) =>
       borderRadius: 100,
       width: size,
       height: size,
-    },
-    iconStyle: {
-      borderRadius: 100,
-      padding: 4,
-      borderWidth: 1,
-      borderColor: 'red',
-      width: 26,
-      height: 26,
     },
     avatarContainer: {
       flexDirection: 'row',

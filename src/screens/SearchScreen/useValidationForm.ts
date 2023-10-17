@@ -9,7 +9,7 @@ export default function useValidationForm() {
     ''
   > = Yup.object().shape({
     username: Yup.string().required('Username is required'),
-    repository: Yup.string().required('Project name is required'),
+    repository: Yup.string().required('Repository is required'),
   });
   return {
     validationSchema,

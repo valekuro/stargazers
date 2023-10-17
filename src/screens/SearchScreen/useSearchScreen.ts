@@ -8,8 +8,11 @@ import {
 } from '../../api/api';
 import {UseFormWatch} from 'react-hook-form';
 import {useNavigation} from '@react-navigation/native';
-import {RootStackParamList} from '../../types/RootStackParamList';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../types/RootStackParamList';
+/* import {useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../../types/RootStackParamList';
+import {StackNavigationProp} from '@react-navigation/stack'; */
 
 export default function useSearchScreen(watch: UseFormWatch<IDataForm>) {
   const [allUsers, setAllUsers] = useState<IUser[]>([]);
@@ -18,6 +21,11 @@ export default function useSearchScreen(watch: UseFormWatch<IDataForm>) {
   >([]);
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
+  /*const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+      navigation.navigate('ResultScreen', {
+        data: el,
+      }),
+       el.map((o: any) => setImages(o.avatar_url)*/
   const onSubmit = async (data: IDataForm) => {
     //@ts-ignore
     getByUserAndProject(data).then(el =>
