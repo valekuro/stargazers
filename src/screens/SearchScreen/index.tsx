@@ -7,70 +7,82 @@ import {
   StyleSheet,
   View,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {IDataForm} from '../../Interfaces/IDataForm';
+import {IDataForm} from '../../interfaces/IDataForm';
 import Input from '../../components/Input';
 import useValidationForm from './useValidationForm';
 import useSearchScreen from './useSearchScreen';
 import ErrorMessage from '../../components/ErrorMessage';
 import Button from '../../components/Button';
-
+/**
+ * SearchScreen component is the first screen with the form for the search.
+ * @returns
+ */
 export default function SearchScreen(): JSX.Element {
   const [focusedUsername, setFocusedUsername] = useState<boolean>(false);
   const [focusedRepository, setFocusedRepository] = useState<boolean>(false);
-
+  //yup validation
   const {validationSchema} = useValidationForm();
+  //react-hook-form
   const {
     control,
     handleSubmit,
     formState: {errors},
-    watch,
+    setValue,
+    getValues,
   } = useForm<IDataForm>({
     resolver: yupResolver(validationSchema),
   });
-  const {allUsers, onSubmit, userData, starredRepoFromUser} =
-    useSearchScreen(watch);
-
+  const {
+    onSubmit,
+    starredRepoFromUser,
+    networkError,
+    repositoryFromUser,
+    openRepoList,
+    setOpenRepoList,
+  } = useSearchScreen();
   return (
     <SafeAreaView style={searchContainerStyle.container}>
       <View>
         <Image
           source={require('../../../assets/images/githubstar.jpg')}
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{width: 180, height: 180, alignSelf: 'center'}}
+          style={searchContainerStyle.logo}
         />
+        <ErrorMessage error={networkError} />
         <Input
           name="username"
           control={control}
           placeholder="Insert username *"
-          onChange={() => userData()}
           onFocus={() => setFocusedUsername(true)}
           onBlur={() => setFocusedUsername(false)}
           focused={focusedUsername}
         />
         <ErrorMessage error={errors.username?.message} />
-        {watch('username') && (
-          <ScrollView>
-            {allUsers.map(el => (
-              <Text key={el.id}>{el.login}</Text>
-            ))}
-          </ScrollView>
-        )}
 
         <Input
           name="repository"
           control={control}
           placeholder="Insert project name *"
+          onChange={() => repositoryFromUser(getValues('username') || '')}
           onFocus={() => setFocusedRepository(true)}
           onBlur={() => setFocusedRepository(false)}
           focused={focusedRepository}
+          disabled={false}
         />
         <ErrorMessage error={errors.repository?.message} />
-        {watch('repository') && (
-          <ScrollView>
+        {openRepoList && (
+          <ScrollView style={{backgroundColor: 'white'}}>
             {starredRepoFromUser.map(el => (
-              <Text key={el.id}>{el.name}</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  setValue('repository', el.name);
+                  setOpenRepoList(false);
+                }}
+                key={el.id}>
+                <Text key={el.id}>{el.name}</Text>
+              </TouchableOpacity>
             ))}
           </ScrollView>
         )}
@@ -88,7 +100,5 @@ const searchContainerStyle = StyleSheet.create({
     backgroundColor:
       ' linear-gradient(180deg, rgba(0,0,0,1) 48%, rgba(255,255,255,0.8577556022408963) 84%)',
   },
-  image: {
-    width: 100,
-  },
+  logo: {width: 180, height: 180, alignSelf: 'center'},
 });

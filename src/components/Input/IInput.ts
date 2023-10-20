@@ -11,4 +11,5 @@ export interface IInput {
   onFocus: () => void;
   onBlur: () => void;
   focused: boolean;
+  disabled?: boolean;
 }

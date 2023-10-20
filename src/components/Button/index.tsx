@@ -1,9 +1,17 @@
 import React from 'react';
-import {TouchableHighlight, Text, StyleSheet} from 'react-native';
-import {IButton} from '../../Interfaces/IButton';
+import {TouchableHighlight, Text} from 'react-native';
+import {IButton} from './IButton';
 import {theme} from '../../theme/theme';
-
-export default function Button({label, onPress}: IButton) {
+import buttonStyle from './style';
+/**
+ * Button component: to better improve a customization, I prefer to use TouchableHighlight.
+ * Also I prefer TouchableHighlight instead of TouchableOpacity for emphasizes the press 
+ * effect by changing the background color
+ * @param label
+ * @param onPress
+ * @returns
+ */
+export default function Button({label, onPress}: IButton): JSX.Element {
   return (
     <TouchableHighlight
       style={buttonStyle(theme.colors.white, theme.colors.anchor).container}
@@ -14,22 +22,3 @@ export default function Button({label, onPress}: IButton) {
     </TouchableHighlight>
   );
 }
-
-const buttonStyle = (color: string, bgColor: string) =>
-  StyleSheet.create({
-    container: {
-      borderWidth: 1,
-      borderColor: `${color}`,
-      padding: 15,
-      borderRadius: 8,
-      width: 280,
-      backgroundColor: `${bgColor}`,
-      alignItems: 'center',
-      alignSelf: 'center',
-    },
-    text: {
-      color: `${color}`,
-      fontWeight: '600',
-      fontSize: 16,
-    },
-  });

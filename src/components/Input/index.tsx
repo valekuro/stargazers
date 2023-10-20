@@ -1,9 +1,21 @@
 import {useController} from 'react-hook-form';
-import {IInput} from '../../Interfaces/IInput';
-import {StyleSheet, TextInput} from 'react-native';
+import {IInput} from './IInput';
+import {TextInput} from 'react-native';
 import React from 'react';
 import {theme} from '../../theme/theme';
-
+import inputStyles from './style';
+/**
+ * Input component
+ * @param name
+ * @param control
+ * @param placeholder
+ * @param onChange
+ * @param onFocus
+ * @param onBlur
+ * @param focused
+ * @param disabled
+ * @returns
+ */
 export default function Input({
   name,
   control,
@@ -12,11 +24,13 @@ export default function Input({
   onFocus,
   onBlur,
   focused,
+  disabled,
 }: IInput): JSX.Element {
   const {field} = useController({
     control,
     defaultValue: '',
     name,
+    disabled,
   });
   const color = focused ? theme.colors.blue : theme.colors.white;
   return (
@@ -29,17 +43,7 @@ export default function Input({
       style={inputStyles(color, theme.colors.white).input}
       onFocus={onFocus}
       onBlur={onBlur}
+      editable={!disabled}
     />
   );
 }
-
-const inputStyles = (color: string, textColor: string) =>
-  StyleSheet.create({
-    input: {
-      borderWidth: 2,
-      borderColor: `${color}`,
-      padding: 10,
-      color: `${textColor}`,
-      borderRadius: 8,
-    },
-  });
