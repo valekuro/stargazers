@@ -1,7 +1,7 @@
 import {useState, useCallback} from 'react';
 import {IUserRepository} from '../../interfaces/IApi';
 import {IDataForm} from '../../interfaces/IDataForm';
-import {getByUserAndProject, getUserRepository} from '../../api/api';
+import {getStargazers, getUserRepository} from '../../api/api';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../types/RootStackParamList';
@@ -19,7 +19,7 @@ export default function useSearchScreen() {
 
   //this function manage onSubmit form
   const onSubmit = async (data: IDataForm) => {
-    getByUserAndProject(data)
+    getStargazers(data)
       .then(el =>
         navigation.navigate('ResultScreen', {
           data: el,

@@ -3,10 +3,7 @@ import {IDataForm} from '../interfaces/IDataForm';
 
 const baseUrl = 'https://api.github.com/';
 
-export const getByUserAndProject = async ({
-  username,
-  repository,
-}: IDataForm) => {
+export const getStargazers = async ({username, repository}: IDataForm) => {
   const configurationObject = {
     method: 'get',
     url: `${baseUrl}repos/${username}/${repository}/stargazers`,

@@ -40,7 +40,7 @@ export default function Input({
       placeholder={placeholder}
       onChange={onChange}
       placeholderTextColor={theme.colors.lightGray}
-      style={inputStyles(color, theme.colors.white).input}
+      style={inputStyles(color).input}
       onFocus={onFocus}
       onBlur={onBlur}
       editable={!disabled}

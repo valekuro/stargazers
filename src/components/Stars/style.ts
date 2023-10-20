@@ -8,8 +8,8 @@ const starStyle = StyleSheet.create({
     justifyContent: 'center',
     width: 140,
     borderWidth: 1,
-    borderColor: `${theme.colors.white}`,
-    borderRadius: 8,
+    borderColor: theme.colors.white,
+    borderRadius: theme.borderRadius,
     alignSelf: 'center',
   },
   image: {
@@ -23,13 +23,13 @@ const starStyle = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color: `${theme.colors.white}`,
+    color: theme.colors.white,
     padding: 8,
     fontWeight: '600',
   },
   stars: {
     fontSize: 30,
-    color: `${theme.colors.amber}`,
+    color: theme.colors.amber,
   },
 });
 

@@ -13,4 +13,5 @@ export const theme = {
     darkGray: '#453F3D',
     amber: '#FFBF00',
   },
+  borderRadius: 8,
 };

@@ -1,13 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {theme} from '../../theme/theme';
 
-const carouselStyle = (
-  color: string,
-  bgColor: string,
-  listItemWidth?: number,
-) =>
+const carouselStyle = (listItemWidth?: number) =>
   StyleSheet.create({
     containerColumnCard: {
-      backgroundColor: `${bgColor}`,
+      backgroundColor: theme.colors.darkGray,
       padding: 20,
       display: 'flex',
       flexDirection: 'column',
@@ -18,11 +15,11 @@ const carouselStyle = (
     },
     titleTextCard: {
       fontSize: 30,
-      color: `${color}`,
+      color: theme.colors.white,
     },
     titleDescriptionCard: {
       fontSize: 18,
-      color: `${color}`,
+      color: theme.colors.white,
     },
     containerRowCard: {
       display: 'flex',
@@ -36,7 +33,7 @@ const carouselStyle = (
       width: listItemWidth || 0,
       borderRadius: 200,
       borderWidth: 2,
-      borderColor: 'white',
+      borderColor: theme.colors.white,
     },
     animatedView: {
       width: listItemWidth,
@@ -56,7 +53,7 @@ const carouselStyle = (
     },
     title: {
       fontSize: 20,
-      color: `${color}`,
+      color: theme.colors.white,
       textAlign: 'center',
       margin: 14,
     },

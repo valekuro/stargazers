@@ -1,6 +1,5 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {theme} from '../../theme/theme';
 import Avatar from '../Avatar';
 import carouselStyle from './style';
 import {ICard} from './ICircularCarousel';
@@ -13,32 +12,12 @@ import {ICard} from './ICircularCarousel';
  */
 export default function Card({title, avatar, description}: ICard): JSX.Element {
   return (
-    <View
-      style={
-        carouselStyle(theme.colors.white, theme.colors.darkGray)
-          .containerColumnCard
-      }>
-      <View
-        style={
-          carouselStyle(theme.colors.white, theme.colors.darkGray)
-            .containerRowCard
-        }>
-        <Text
-          style={
-            carouselStyle(theme.colors.white, theme.colors.darkGray)
-              .titleTextCard
-          }>
-          {title}
-        </Text>
+    <View style={carouselStyle().containerColumnCard}>
+      <View style={carouselStyle().containerRowCard}>
+        <Text style={carouselStyle().titleTextCard}>{title}</Text>
       </View>
       <Avatar url={avatar || ''} size={100} />
-      <Text
-        style={
-          carouselStyle(theme.colors.white, theme.colors.darkGray)
-            .titleDescriptionCard
-        }>
-        {description}
-      </Text>
+      <Text style={carouselStyle().titleDescriptionCard}>{description}</Text>
     </View>
   );
 }

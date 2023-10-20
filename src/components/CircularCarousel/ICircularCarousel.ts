@@ -1,5 +1,4 @@
 import Animated from 'react-native-reanimated';
-import {IDataForm} from '../../interfaces/IDataForm';
 
 export interface ICard {
   title?: string;
@@ -16,6 +15,6 @@ export interface ICircolarCarouselListItem {
 
 export interface ICircularCarousel {
   data: string[];
-  usersInformation: any;
-  dataSearch: IDataForm;
+  setSelectedUser: React.Dispatch<React.SetStateAction<number>>;
+  listItemWidth: number;
 }

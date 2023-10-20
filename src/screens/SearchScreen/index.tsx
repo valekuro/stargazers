@@ -16,6 +16,7 @@ import useValidationForm from './useValidationForm';
 import useSearchScreen from './useSearchScreen';
 import ErrorMessage from '../../components/ErrorMessage';
 import Button from '../../components/Button';
+import searchScreenStyles from './style';
 /**
  * SearchScreen component is the first screen with the form for the search.
  * @returns
@@ -44,11 +45,11 @@ export default function SearchScreen(): JSX.Element {
     setOpenRepoList,
   } = useSearchScreen();
   return (
-    <SafeAreaView style={searchContainerStyle.container}>
+    <SafeAreaView style={searchScreenStyles.container}>
       <View>
         <Image
           source={require('../../../assets/images/githubstar.jpg')}
-          style={searchContainerStyle.logo}
+          style={searchScreenStyles.logo}
         />
         <ErrorMessage error={networkError} />
         <Input
@@ -60,45 +61,35 @@ export default function SearchScreen(): JSX.Element {
           focused={focusedUsername}
         />
         <ErrorMessage error={errors.username?.message} />
-
-        <Input
-          name="repository"
-          control={control}
-          placeholder="Insert project name *"
-          onChange={() => repositoryFromUser(getValues('username') || '')}
-          onFocus={() => setFocusedRepository(true)}
-          onBlur={() => setFocusedRepository(false)}
-          focused={focusedRepository}
-          disabled={false}
-        />
-        <ErrorMessage error={errors.repository?.message} />
-        {openRepoList && (
-          <ScrollView style={{backgroundColor: 'white'}}>
-            {starredRepoFromUser.map(el => (
-              <TouchableOpacity
-                onPress={() => {
-                  setValue('repository', el.name);
-                  setOpenRepoList(false);
-                }}
-                key={el.id}>
-                <Text key={el.id}>{el.name}</Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        )}
+        <View style={{position: 'relative'}}>
+          <Input
+            name="repository"
+            control={control}
+            placeholder="Insert project name *"
+            onChange={() => repositoryFromUser(getValues('username') || '')}
+            onFocus={() => setFocusedRepository(true)}
+            onBlur={() => setFocusedRepository(false)}
+            focused={focusedRepository}
+            disabled={false}
+          />
+          <ErrorMessage error={errors.repository?.message} />
+          {openRepoList && (
+            <ScrollView style={searchScreenStyles.dropdownContainer}>
+              {starredRepoFromUser.map(el => (
+                <TouchableOpacity
+                  onPress={() => {
+                    setValue('repository', el.name);
+                    setOpenRepoList(false);
+                  }}
+                  key={el.id}>
+                  <Text key={el.id}>{el.name}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          )}
+        </View>
       </View>
       <Button label="Submit" onPress={handleSubmit(onSubmit)} />
     </SafeAreaView>
   );
 }
-
-const searchContainerStyle = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 30,
-    backgroundColor:
-      ' linear-gradient(180deg, rgba(0,0,0,1) 48%, rgba(255,255,255,0.8577556022408963) 84%)',
-  },
-  logo: {width: 180, height: 180, alignSelf: 'center'},
-});
