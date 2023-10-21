@@ -12,7 +12,7 @@ import {ICard} from './ICircularCarousel';
  */
 export default function Card({title, avatar, description}: ICard): JSX.Element {
   return (
-    <View style={carouselStyle().containerColumnCard}>
+    <View style={carouselStyle().containerColumnCard} testID="card-section">
       <View style={carouselStyle().containerRowCard}>
         <Text style={carouselStyle().titleTextCard}>{title}</Text>
       </View>

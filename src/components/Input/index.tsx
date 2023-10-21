@@ -35,6 +35,7 @@ export default function Input({
   const color = focused ? theme.colors.blue : theme.colors.white;
   return (
     <TextInput
+      testID="input"
       value={field.value}
       onChangeText={field.onChange}
       placeholder={placeholder}
