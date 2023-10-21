@@ -16,7 +16,7 @@ export default function Card({title, avatar, description}: ICard): JSX.Element {
       <View style={carouselStyle().containerRowCard}>
         <Text style={carouselStyle().titleTextCard}>{title}</Text>
       </View>
-      <Avatar url={avatar || ''} size={100} />
+      <Avatar url={avatar || ''} size={150} />
       <Text style={carouselStyle().titleDescriptionCard}>{description}</Text>
     </View>
   );

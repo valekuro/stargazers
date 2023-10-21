@@ -6,15 +6,12 @@ const starStyle = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    width: 140,
-    borderWidth: 1,
-    borderColor: theme.colors.white,
-    borderRadius: theme.borderRadius,
+    width: 60,
     alignSelf: 'center',
   },
   image: {
-    width: 30,
-    height: 30,
+    width: 12,
+    height: 12,
     margin: 8,
   },
   subContainer: {
@@ -24,11 +21,11 @@ const starStyle = StyleSheet.create({
   },
   text: {
     color: theme.colors.white,
-    padding: 8,
+    padding: 2,
     fontWeight: '600',
   },
   stars: {
-    fontSize: 30,
+    fontSize: 20,
     color: theme.colors.amber,
   },
 });

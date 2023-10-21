@@ -49,22 +49,60 @@ export default function ResultScreen(route: TResultScreen) {
   return (
     <View>
       {route.route.params.data.length ? (
-        <View style={carouselStyle(listItemWidth).container}>
+        <View
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: 700,
+            gap: 60,
+          }}>
           {userInfo && (
-            <View style={{display: 'flex', flexDirection: 'row'}}>
-              <Avatar url={userInfo?.avatar_url} size={40} />
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                borderWidth: 1,
+                borderColor: 'white',
+                borderRadius: 8,
+                padding: 10,
+                width: '100%',
+                gap: 8,
+                alignItems: 'center',
+              }}>
+              <Avatar url={userInfo?.avatar_url} size={60} />
               <View
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-around',
+                  flexWrap: 'nowrap',
+                  flexGrow: 1,
+                  flex: 1,
+                  alignSelf:'center',
                 }}>
-                <Text style={{color: 'white'}}>{userInfo?.name}</Text>
-                <Text style={{color: 'white'}}>{userInfo?.company}</Text>
+                <Text
+                  style={{
+                    color: 'white',
+                    fontSize: 18,
+                    fontWeight: '600',
+                  }}>
+                  {userInfo?.name}
+                </Text>
+                <Text
+                  style={{
+                    flexShrink: 1,
+                    flexWrap: 'wrap',
+                    color: 'white',
+                    fontSize: 12,
+                  }}>
+                  {userInfo?.bio}
+                </Text>
+                <View style={{alignSelf: 'flex-end'}}>
+                  <Stars starsNumber={images.length} />
+                </View>
               </View>
             </View>
           )}
-          <Stars starsNumber={images.length} />
           <Card
             title={route.route.params.data[selectedUser].login}
             avatar={route.route.params.data[selectedUser].avatar_url}

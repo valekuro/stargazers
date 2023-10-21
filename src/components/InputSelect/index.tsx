@@ -46,17 +46,3 @@ export default function InputSelect({
   );
 }
 
-{
-  /*  <InputSelect
-          control={control}
-          placeholder="Insert project name *"
-          onChange={() => repositoryFromUser(getValues('username') || '')}
-          onBlur={() => setFocusedRepository(false)}
-          onFocus={() => setFocusedRepository(true)}
-          focused={focusedRepository}
-          onPressArrow={() => setOpenRepoList(!openRepoList)}
-          isResultOpen={openRepoList}
-          disabled={false}
-          name={'repository'}
-        /> */
-}

@@ -7,7 +7,6 @@ export default function Stars({starsNumber}: IStars) {
   return (
     <View style={starStyle.container}>
       <View style={starStyle.subContainer}>
-        <Text style={starStyle.text}>Stars</Text>
         <Image
           source={require('../../../assets/images/star.png')}
           style={starStyle.image}

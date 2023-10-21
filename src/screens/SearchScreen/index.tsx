@@ -31,14 +31,23 @@ export default function SearchScreen(): JSX.Element {
   } = useForm<IDataForm>({
     resolver: yupResolver(validationSchema),
   });
-  const {onSubmit, starredRepoFromUser, networkError, repositoryFromUser} =
-    useSearchScreen();
+  const {
+    onSubmit,
+    starredRepoFromUser,
+    networkError,
+    repositoryFromUser,
+    setNetworkError,
+  } = useSearchScreen();
 
   useEffect(() => {
     if (watch('username') && watch('username').length > 3) {
       repositoryFromUser(watch('username') || '');
+      console.log(starredRepoFromUser);
+     /*  if (starredRepoFromUser.length) {
+        setNetworkError('');
+      } */
     }
-  }, [repositoryFromUser, watch]);
+  }, [starredRepoFromUser.length, watch]);
   return (
     <SafeAreaView style={searchScreenStyles.container}>
       <View>

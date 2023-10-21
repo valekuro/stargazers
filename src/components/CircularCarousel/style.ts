@@ -4,14 +4,16 @@ import {theme} from '../../theme/theme';
 const carouselStyle = (listItemWidth?: number) =>
   StyleSheet.create({
     containerColumnCard: {
-      backgroundColor: theme.colors.darkGray,
-      padding: 20,
+      backgroundColor: theme.colors.black,
+      padding: 10,
       display: 'flex',
       flexDirection: 'column',
-      borderRadius: 50,
+      borderRadius: theme.borderRadius,
+      borderWidth: 1,
+      borderColor: theme.colors.lightGray,
       alignItems: 'center',
-      justifyContent: 'space-between',
-      height: 290,
+      justifyContent: 'space-around',
+      height: 300,
     },
     titleTextCard: {
       fontSize: 30,

@@ -61,7 +61,7 @@ export default function useSearchScreen() {
           // that falls out of the range of 2xx
           error.response.status === 404
             ? setNetworkError(
-                'User or repository not exists. Try with other data.',
+                "User not exists or there isn't a repository available",
               )
             : setNetworkError(
                 `Something went wrong: ${error.response.status} - ${error.response.data.message}`,
@@ -86,5 +86,6 @@ export default function useSearchScreen() {
     repositoryFromUser,
     openRepoList,
     setOpenRepoList,
+    setNetworkError,
   };
 }

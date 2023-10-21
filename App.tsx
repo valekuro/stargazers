@@ -35,7 +35,14 @@ function App(): JSX.Element {
         <Stack.Screen
           name="ResultScreen"
           component={ResultScreen}
-          options={{headerShown: true}}
+          options={{
+            headerShown: true,
+            title: ' ',
+            headerTintColor: theme.colors.white,
+            headerStyle: {
+              backgroundColor: theme.colors.darkGray,
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
