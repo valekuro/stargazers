@@ -1,29 +1,24 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
-import {
-  SafeAreaView,
-  Text,
-  ScrollView,
-  StyleSheet,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {SafeAreaView, View, Image} from 'react-native';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {IDataForm} from '../../interfaces/IDataForm';
 import Input from '../../components/Input';
 import useValidationForm from './useValidationForm';
 import useSearchScreen from './useSearchScreen';
 import ErrorMessage from '../../components/ErrorMessage';
+import searchScreenStyles, {dropdownStyle} from './style';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
+import SelectDropdown from 'react-native-select-dropdown';
+import {theme} from '../../theme/theme';
 import Button from '../../components/Button';
-import searchScreenStyles from './style';
 /**
  * SearchScreen component is the first screen with the form for the search.
  * @returns
  */
 export default function SearchScreen(): JSX.Element {
   const [focusedUsername, setFocusedUsername] = useState<boolean>(false);
-  const [focusedRepository, setFocusedRepository] = useState<boolean>(false);
   //yup validation
   const {validationSchema} = useValidationForm();
   //react-hook-form
@@ -32,18 +27,18 @@ export default function SearchScreen(): JSX.Element {
     handleSubmit,
     formState: {errors},
     setValue,
-    getValues,
+    watch,
   } = useForm<IDataForm>({
     resolver: yupResolver(validationSchema),
   });
-  const {
-    onSubmit,
-    starredRepoFromUser,
-    networkError,
-    repositoryFromUser,
-    openRepoList,
-    setOpenRepoList,
-  } = useSearchScreen();
+  const {onSubmit, starredRepoFromUser, networkError, repositoryFromUser} =
+    useSearchScreen();
+
+  useEffect(() => {
+    if (watch('username') && watch('username').length > 3) {
+      repositoryFromUser(watch('username') || '');
+    }
+  }, [repositoryFromUser, watch]);
   return (
     <SafeAreaView style={searchScreenStyles.container}>
       <View>
@@ -61,35 +56,64 @@ export default function SearchScreen(): JSX.Element {
           focused={focusedUsername}
         />
         <ErrorMessage error={errors.username?.message} />
-        <View style={{position: 'relative'}}>
-          <Input
-            name="repository"
-            control={control}
-            placeholder="Insert project name *"
-            onChange={() => repositoryFromUser(getValues('username') || '')}
-            onFocus={() => setFocusedRepository(true)}
-            onBlur={() => setFocusedRepository(false)}
-            focused={focusedRepository}
-            disabled={false}
-          />
-          <ErrorMessage error={errors.repository?.message} />
-          {openRepoList && (
-            <ScrollView style={searchScreenStyles.dropdownContainer}>
-              {starredRepoFromUser.map(el => (
-                <TouchableOpacity
-                  onPress={() => {
-                    setValue('repository', el.name);
-                    setOpenRepoList(false);
-                  }}
-                  key={el.id}>
-                  <Text key={el.id}>{el.name}</Text>
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-          )}
-        </View>
+
+        <SelectDropdown
+          disabled={starredRepoFromUser.length === 0}
+          defaultButtonText="Search repo here"
+          search
+          searchInputStyle={
+            dropdownStyle(!!(starredRepoFromUser.length === 0))
+              .dropdownSearchInputStyle
+          }
+          rowStyle={
+            dropdownStyle(!!(starredRepoFromUser.length === 0)).dropdownRowStyle
+          }
+          buttonStyle={
+            dropdownStyle(!!(starredRepoFromUser.length === 0))
+              .dropdownButtonStyle
+          }
+          buttonTextStyle={
+            dropdownStyle(!!(starredRepoFromUser.length === 0))
+              .dropdownButtonTextStyle
+          }
+          rowTextStyle={
+            dropdownStyle(!!(starredRepoFromUser.length === 0))
+              .dropdownRowTextStyle
+          }
+          data={starredRepoFromUser}
+          onSelect={selectedItem => {
+            setValue('repository', selectedItem.name);
+          }}
+          renderDropdownIcon={isOpened => {
+            return (
+              <FontAwesomeIcon
+                icon={isOpened ? faChevronUp : faChevronDown}
+                color={
+                  starredRepoFromUser.length === 0
+                    ? theme.colors.lightGray
+                    : theme.colors.white
+                }
+                size={18}
+              />
+            );
+          }}
+          searchPlaceHolder={'Search repo here'}
+          dropdownIconPosition={'right'}
+          buttonTextAfterSelection={selectedItem => {
+            return selectedItem.name;
+          }}
+          rowTextForSelection={item => {
+            return item.name;
+          }}
+        />
       </View>
-      <Button label="Submit" onPress={handleSubmit(onSubmit)} />
+      <Button
+        label="Search"
+        onPress={handleSubmit(onSubmit)}
+        disabled={!!(watch('repository')?.length === 0)}
+      />
     </SafeAreaView>
   );
 }
+/*         disabled={!!(watch('repository')?.length === 0)}
+ */

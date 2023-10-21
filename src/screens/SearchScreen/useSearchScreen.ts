@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import {useState} from 'react';
 import {IUserRepository} from '../../interfaces/IApi';
 import {IDataForm} from '../../interfaces/IDataForm';
 import {getStargazers, getUserRepository} from '../../api/api';
@@ -54,21 +54,10 @@ export default function useSearchScreen() {
     getUserRepository(username).then(repository => {
       setStarredRepoFromUser(repository);
     });
-    setOpenRepoList(true);
   };
-  const starredProject = useCallback((username: string) => {
-    /*  getStarredByUser(username).then(el =>
-        setStarredRepoFromUser(
-          el.filter((option: IUser) =>
-            option.login.startsWith(watch('repository') || ''),
-          ),
-        ),
-      ); */
-    console.log(username);
-  }, []);
+
   return {
     onSubmit,
-    starredProject,
     starredRepoFromUser,
     networkError,
     repositoryFromUser,

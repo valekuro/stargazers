@@ -1,12 +1,5 @@
-import React, {useState} from 'react';
-import {
-  Dimensions,
-  FlatList,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  Text,
-  View,
-} from 'react-native';
+import React from 'react';
+import {FlatList, NativeScrollEvent, NativeSyntheticEvent} from 'react-native';
 import CircolarCarouselListItem from './CircularCarouselListItem';
 import {useSharedValue} from 'react-native-reanimated';
 import carouselStyle from './style';

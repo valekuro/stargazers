@@ -1,22 +1,21 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
 
-const buttonStyle = StyleSheet.create({
-  container: {
-    borderWidth: 1,
-    borderColor: theme.colors.white,
-    padding: 15,
-    borderRadius: theme.borderRadius,
-    width: 280,
-    backgroundColor: theme.colors.anchor,
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  text: {
-    color: theme.colors.white,
-    fontWeight: '600',
-    fontSize: 16,
-  },
-});
+const buttonStyle = (disabled: boolean) =>
+  StyleSheet.create({
+    container: {
+      backgroundColor: theme.colors.green,
+      padding: 10,
+      width: 300,
+      borderRadius: theme.borderRadius,
+      alignSelf: 'center',
+    },
+    text: {
+      fontWeight: '700',
+      color: disabled ? theme.colors.lightGray : theme.colors.white,
+      fontSize: 18,
+      textAlign: 'center',
+    },
+  });
 
 export default buttonStyle;

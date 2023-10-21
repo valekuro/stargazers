@@ -9,7 +9,7 @@ export interface IInput {
     | ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
     | undefined;
   onFocus: () => void;
-  onBlur: () => void;
+  onBlur: (e: NativeSyntheticEvent<TextInputChangeEventData>) => void;
   focused: boolean;
   disabled?: boolean;
 }

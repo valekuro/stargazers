@@ -12,6 +12,8 @@ export const theme = {
     lightGray: '#A0A0A0',
     darkGray: '#453F3D',
     amber: '#FFBF00',
+    green: '#2EA043',
+    lightGreen: '#7EE787',
   },
   borderRadius: 8,
 };

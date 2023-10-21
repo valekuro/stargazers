@@ -8,12 +8,20 @@ import buttonStyle from './style';
  * effect by changing the background color
  * @param label
  * @param onPress
+ * @param disabled
  * @returns
  */
-export default function Button({label, onPress}: IButton): JSX.Element {
+export default function Button({
+  label,
+  onPress,
+  disabled,
+}: IButton): JSX.Element {
   return (
-    <TouchableHighlight style={buttonStyle.container} onPress={onPress}>
-      <Text style={buttonStyle.text}>{label}</Text>
+    <TouchableHighlight
+      style={buttonStyle(disabled).container}
+      onPress={onPress}
+      disabled={disabled}>
+      <Text style={buttonStyle(disabled).text}>{label}</Text>
     </TouchableHighlight>
   );
 }
