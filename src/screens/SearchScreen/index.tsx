@@ -110,10 +110,8 @@ export default function SearchScreen(): JSX.Element {
       <Button
         label="Search"
         onPress={handleSubmit(onSubmit)}
-        disabled={!!(watch('repository')?.length === 0)}
+        disabled={false}
       />
     </SafeAreaView>
   );
 }
-/*         disabled={!!(watch('repository')?.length === 0)}
- */

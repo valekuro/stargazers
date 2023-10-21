@@ -8,14 +8,27 @@ export const getStargazers = async ({username, repository}: IDataForm) => {
     method: 'get',
     url: `${baseUrl}repos/${username}/${repository}/stargazers`,
   };
-  const response = await axios(configurationObject);
-  return response.data;
+  try {
+    const response = await axios(configurationObject);
+    return response.data;
+  } catch (error) {
+    return console.log(error);
+  }
 };
 
 export const getUserRepository = async (username: string) => {
   const configurationObject = {
     method: 'get',
     url: `${baseUrl}users/${username}/repos`,
+  };
+  const response = await axios(configurationObject);
+  return response.data;
+};
+
+export const getInformationsByUsername = async (userName: string) => {
+  const configurationObject = {
+    method: 'get',
+    url: `${baseUrl}users/${userName}`,
   };
   const response = await axios(configurationObject);
   return response.data;
