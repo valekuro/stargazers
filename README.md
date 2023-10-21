@@ -70,4 +70,11 @@ In this folder there are the main application components to guarantee the reusin
 The folder contains API types and form types. I choose to get this types into a separate folder because, in general, many API calls have some similarities between types so it is convenient to use typescript utilities to streamline the code. Also the form data can be correlated to the types of calls.
 
 ## Screens folder
-It contains the app screens using the same logic see in Components folder. For result screen I prefer to use a FlatList instead of ScrollVIew to provide a better performed list. Then, I animate the list using react-native-reanimated library.
+It contains the app screens using the same logic see in Components folder. 
+
+# Stargazers Project
+
+
+
+# Technical choise
+For result screen I prefer to use a FlatList instead of ScrollVIew to provide a better performed list. Then, I animate the list using react-native-reanimated library.

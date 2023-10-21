@@ -1,19 +1,22 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {IUserRepository} from '../../interfaces/IApi';
 import {IDataForm} from '../../interfaces/IDataForm';
 import {getStargazers, getUserRepository} from '../../api/api';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../types/RootStackParamList';
+import {AxiosError} from 'axios';
+import {UseFormWatch} from 'react-hook-form/dist/types/form';
+import messageError from '../../utils/error';
 /**
  * this personalized hook manage all SearchScreen logic
+ * @params watch
  * @returns
  */
-export default function useSearchScreen() {
+export default function useSearchScreen(watch: UseFormWatch<IDataForm>) {
   const [starredRepoFromUser, setStarredRepoFromUser] = useState<
     IUserRepository[]
   >([]);
-  const [openRepoList, setOpenRepoList] = useState<boolean>(false);
   const [networkError, setNetworkError] = useState<string>('');
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
@@ -26,66 +29,41 @@ export default function useSearchScreen() {
           dataSearch: data,
         }),
       )
-      .catch(error => {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          error.response.status === 404
-            ? setNetworkError(
-                'User or repository not exists. Try with other data.',
-              )
-            : setNetworkError(
-                `Something went wrong: ${error.response.status} - ${error.response.data.message}`,
-              );
-        } else if (error.request) {
-          // The request was made but no response was received
-          // `error.request` is an instance of XMLHttpRequest in the
-          // browser and an instance of
-          // http.ClientRequest in node.js
-          setNetworkError('Something went wrong: try later!');
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          setNetworkError(`Something went wrong: ${error.message}`);
-        }
+      .catch((error: AxiosError) => {
+        const message = messageError(error);
+        setNetworkError(message || '');
       });
   };
 
+  //this function allow to have all repository of a specific user
   const repositoryFromUser = (username: string) => {
-    getUserRepository(username)
-      .then(repository => {
-        setStarredRepoFromUser(repository);
-      })
-      .catch(error => {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          error.response.status === 404
-            ? setNetworkError(
-                "User not exists or there isn't a repository available",
-              )
-            : setNetworkError(
-                `Something went wrong: ${error.response.status} - ${error.response.data.message}`,
-              );
-        } else if (error.request) {
-          // The request was made but no response was received
-          // `error.request` is an instance of XMLHttpRequest in the
-          // browser and an instance of
-          // http.ClientRequest in node.js
-          setNetworkError('Something went wrong: try later!');
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          setNetworkError(`Something went wrong: ${error.message}`);
-        }
-      });
+    if (username.length > 0) {
+      getUserRepository(username)
+        .then(repository => {
+          setNetworkError('');
+          setStarredRepoFromUser(repository);
+        })
+        .catch((error: AxiosError) => {
+          const message = messageError(error);
+          setNetworkError(message || '');
+          setStarredRepoFromUser([]);
+        });
+    }
   };
+
+  //this useEffect help to manage dropdown repository
+  useEffect(() => {
+    if (watch('username') && watch('username').length > 0) {
+      repositoryFromUser(watch('username') || '');
+    }
+    if (watch('username')?.length === 0) {
+      setStarredRepoFromUser([]);
+    }
+  }, [watch('username')]);
 
   return {
     onSubmit,
     starredRepoFromUser,
     networkError,
-    repositoryFromUser,
-    openRepoList,
-    setOpenRepoList,
-    setNetworkError,
   };
 }

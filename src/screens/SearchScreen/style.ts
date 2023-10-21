@@ -9,7 +9,7 @@ const searchScreenStyles = StyleSheet.create({
   },
   logo: {width: 180, height: 180, alignSelf: 'center'},
   text: {
-    color: `${theme.colors.white}`,
+    color: theme.colors.white,
   },
 });
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {SafeAreaView, View, Image} from 'react-native';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -31,23 +31,9 @@ export default function SearchScreen(): JSX.Element {
   } = useForm<IDataForm>({
     resolver: yupResolver(validationSchema),
   });
-  const {
-    onSubmit,
-    starredRepoFromUser,
-    networkError,
-    repositoryFromUser,
-    setNetworkError,
-  } = useSearchScreen();
+  //component logic
+  const {onSubmit, starredRepoFromUser, networkError} = useSearchScreen(watch);
 
-  useEffect(() => {
-    if (watch('username') && watch('username').length > 3) {
-      repositoryFromUser(watch('username') || '');
-      console.log(starredRepoFromUser);
-     /*  if (starredRepoFromUser.length) {
-        setNetworkError('');
-      } */
-    }
-  }, [starredRepoFromUser.length, watch]);
   return (
     <SafeAreaView style={searchScreenStyles.container}>
       <View>
@@ -112,9 +98,14 @@ export default function SearchScreen(): JSX.Element {
             return selectedItem.name;
           }}
           rowTextForSelection={item => {
-            return item.name;
+            if (item.name) {
+              return item.name;
+            } else {
+              return 'No repository for this user';
+            }
           }}
         />
+        <ErrorMessage error={errors.repository?.message} />
       </View>
       <Button
         label="Search"

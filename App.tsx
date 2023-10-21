@@ -21,7 +21,7 @@ function App(): JSX.Element {
         initialRouteName="SearchScreen"
         screenOptions={{
           contentStyle: {
-            backgroundColor: `${theme.colors.black}`,
+            backgroundColor: theme.colors.black,
             padding: 10,
             display: 'flex',
             justifyContent: 'center',
