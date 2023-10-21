@@ -20,6 +20,7 @@ export default function Button({
     <TouchableHighlight
       style={buttonStyle(disabled).container}
       onPress={onPress}
+      testID="button"
       disabled={disabled}>
       <Text style={buttonStyle(disabled).text}>{label}</Text>
     </TouchableHighlight>

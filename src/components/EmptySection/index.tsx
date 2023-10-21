@@ -8,7 +8,7 @@ import {emptyStyle} from './style';
  */
 export default function EmptySection() {
   return (
-    <View style={emptyStyle.container}>
+    <View style={emptyStyle.container} testID="empty-section">
       <Image
         source={require('../../../assets/images/githubstar.jpg')}
         style={emptyStyle.logo}

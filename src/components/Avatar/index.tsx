@@ -11,7 +11,11 @@ import avatarStyles from './style';
 export default function Avatar({url, size}: IAvatar): JSX.Element {
   return (
     <View style={avatarStyles(size).avatarContainer}>
-      <Image source={{uri: url}} style={avatarStyles(size).imageContainer} />
+      <Image
+        testID="avatar"
+        source={{uri: url}}
+        style={avatarStyles(size).imageContainer}
+      />
     </View>
   );
 }
