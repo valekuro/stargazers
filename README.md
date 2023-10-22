@@ -91,6 +91,14 @@ Also errors from API are managed, I choose to use the default message but you ca
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=200>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/search-open-select.jpeg?raw=true" width=200>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/form-compiled-happy-path.jpeg?raw=true" width=200>
+</p>
+## Result Screen
+To show stargazers list, I prefer to use a FlatList instead of Scrollview because FlatList is more efficient: it uses a more memory-efficient data structure to store the list items and it only renders the items that are currently visible on the screen. Then I turned the list into a carousel applied animations  with the library react-native-reanimated.
+<p align='center'>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/no-stargazers-found.jpeg?raw=true" width=200 />
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/result-screen.jpeg?raw=true" width=200>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/another-result.jpeg?raw=true" width=200>
 </p>
 Technical choise
 For result screen I prefer to use a FlatList instead of ScrollVIew to provide a better performed list. Then, I animate the list using react-native-reanimated library.
