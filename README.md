@@ -82,7 +82,9 @@ In this folder there are component tests.
 # Stargazers Project
 ## Search screen
 The first screen shows an input text for the username and a select for choose a repository. 
+<div style="display:flex; flex-flow:row; justify-content:center">
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=250 />
+</div>
 The form is controlled by react-hook-form and validate with yup library so If you try to send data required empty, you can see an error message. Also error from API are managed. 
 Until username input is empty or you fill a username without repository, the select is inactive. 
 
