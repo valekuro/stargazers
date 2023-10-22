@@ -86,7 +86,7 @@ The first screen shows an input text for the username and a select for choose a 
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=230 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/hook-form-error.jpeg?raw=true" width=230>
 </p>
-Also errors from API are managed. Until username input is empty or you fill a username without repository, the select is inactive. 
+Also errors from API are managed, I choose to use the default message but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=230 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=230>
