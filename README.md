@@ -78,7 +78,7 @@ It contains the app screens. The folder use the same logic see in Components fol
 ## Theme folder
 The folder contains theme.ts file whit colors and borderRadius used in the app. This folder could contains all styles in common between components.
 ## __tests__ folder
-In this folder there are component tests.
+In this folder there are component tests realized with a JavaScript Testing Framework called Jest.
 
 # Stargazers Project
 ## Search screen
