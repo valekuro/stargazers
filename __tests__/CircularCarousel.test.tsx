@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react-native';
+import {render} from '@testing-library/react-native';
 import CircularCarousel from '../src/components/CircularCarousel';
 
 const MOCK_USERS_URL = [
@@ -20,14 +20,14 @@ const MOCK_USERS_URL = [
 describe('Testing FlatList', () => {
   const setSelectedUser = jest.fn(() => null);
 
-  test('it should shows the carousel items', () => {
-    render(
+  test('it should shows the flat list items', () => {
+    const circular_ = render(
       <CircularCarousel
         data={MOCK_USERS_URL}
         setSelectedUser={setSelectedUser}
         listItemWidth={200}
       />,
     );
-    expect(screen.getByTestId('listitem')).toBeDefined();
+    expect(circular_.queryAllByTestId('listitem')).toBeDefined();
   });
 });
