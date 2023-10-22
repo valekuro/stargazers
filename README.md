@@ -88,7 +88,7 @@ The first screen shows an input text for the username and a select for choose a 
 </p>
 Also errors from API are managed, I choose to use the default message but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active. In dropdown you can also search the repo in list.
 <p align='center'>
-<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=230 />
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=200>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/search-open-select.jpeg?raw=true" width=200>
 </p>
