@@ -1,5 +1,5 @@
 # React Native Stargazers Project 
-Node version: 18.18.2
+Node version: 18.18.2  
 npm version: 9.8.1
 
 ## Table of Contents
@@ -31,6 +31,7 @@ To run the project, do the following steps:
 2. On your terminal run `git clone https://github.com/valekuro/stargazers.git`
 3. In the project folder run `npm i`
 4. Finally run `npx react-native run-android` and enjoy!
+5. If you want start tests, run `npm test`
 
 # Folder
 In this section there is the folder structure:
@@ -56,21 +57,21 @@ In this section there is the folder structure:
 ```
 ## src folder
 ### Api folder
-In this folder there are functions for GitHub API calls, in particular:
-* getUserRepository: get all repository of a user;
+In this folder you can find functions for GitHub API calls, in particular:
+* getUserRepository: get all user repositories;
 * getInformationsByUsername: get all informations about a specific user;
 * getStargazers: get the list of users who have added a specific repository to their favourite;
 
 ### Components folder
 In this folder there are the main application components to guarantee the reusing code. Each folder component could contain:
-* style.ts: file with the necessary StyleSheet
-* index.tsx: it contains the jsx component
-* I[Component].ts: it contains all the specific component types
-* use[Component].ts: it is a personalized hook that contains the component logic
+* style.ts: StyleSheet component
+* index.tsx: JSX component
+* I[Component].ts: specific component types
+* use[Component].ts: personalized hook that contains the component logic
 * other components used only in the main component: for example CircularCarousel component contains other secondary component used only for the component purpose.
 
 ### Interfaces folder
-The folder contains API types and form types. I choose to get different folder because this types are called everywhere in the app.
+The folder contains API interfaces and form interfaces. I choose to put this interfaces in an external folder because this types are called everywhere in the app.
 
 ### Screens folder
 It contains the app screens. The folder use the same logic see in Components folder. 
@@ -86,7 +87,7 @@ The first screen shows an input text for the username and a select for choose a 
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/hook-form-error.jpeg?raw=true" width=200>
 </p>
-Also errors from API are managed, I choose to use the default message but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active. In dropdown you can also search the repo in list.
+Also errors from API are managed, I choose to use the default messages but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active. In dropdown you can also search the repo in list.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=200>
@@ -95,7 +96,8 @@ Also errors from API are managed, I choose to use the default message but you ca
 </p>
 
 ## Result screen
-To show stargazers list, I prefer to use a FlatList instead of Scrollview because FlatList is more efficient: it uses a more memory-efficient data structure to store the list items and it only renders the items that are currently visible on the screen. Then I turned the list into a carousel applied animations  with the library react-native-reanimated.
+To show stargazers list, I prefer to use a FlatList instead of Scrollview because FlatList is more efficient: it uses a more memory-efficient data structure to store the list items and it only renders the items that are currently visible on the screen. Then I turned the list into a carousel applying style and animations with the library react-native-reanimated. 
+Clicking on an avatar you can see information such as photo, name and git url.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/result-screen.jpeg?raw=true" width=200>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/no-stargazers-found.jpeg?raw=true" width=200 />
