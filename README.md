@@ -83,13 +83,14 @@ In this folder there are component tests.
 ## Search screen
 The first screen shows an input text for the username and a select for choose a repository. The form is controlled by react-hook-form and validate with yup library so If you try to send data required empty, you can see an error message.
 <p align='center'>
-<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=230 />
-<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/hook-form-error.jpeg?raw=true" width=230>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=200 />
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/hook-form-error.jpeg?raw=true" width=200>
 </p>
-Also errors from API are managed, I choose to use the default message but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active.
+Also errors from API are managed, I choose to use the default message but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active. In dropdown you can also search the repo in list.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=230 />
-<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=230>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=200>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/search-open-select.jpeg?raw=true" width=200>
 </p>
 Technical choise
 For result screen I prefer to use a FlatList instead of ScrollVIew to provide a better performed list. Then, I animate the list using react-native-reanimated library.
