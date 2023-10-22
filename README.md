@@ -81,13 +81,15 @@ In this folder there are component tests.
 
 # Stargazers Project
 ## Search screen
-The first screen shows an input text for the username and a select for choose a repository. 
-<div style="display:flex; flex-flow:row; justify-content:center">
-<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=250 />
-</div>
-The form is controlled by react-hook-form and validate with yup library so If you try to send data required empty, you can see an error message. Also error from API are managed. 
-Until username input is empty or you fill a username without repository, the select is inactive. 
-
-
+The first screen shows an input text for the username and a select for choose a repository. The form is controlled by react-hook-form and validate with yup library so If you try to send data required empty, you can see an error message.
+<p align='center'>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=230 />
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/hook-form-error.jpeg?raw=true" width=230>
+</p>
+Also errors from API are managed. Until username input is empty or you fill a username without repository, the select is inactive. 
+<p align='center'>
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=230 />
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=230>
+</p>
 Technical choise
 For result screen I prefer to use a FlatList instead of ScrollVIew to provide a better performed list. Then, I animate the list using react-native-reanimated library.
