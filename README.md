@@ -74,9 +74,17 @@ The folder contains API types and form types. I choose to get different folder b
 
 ### Screens folder
 It contains the app screens. The folder use the same logic see in Components folder. 
+## Theme folder
+The folder contains theme.ts file whit colors and borderRadius used in the app. This folder could contains all styles in common between components.
+## __tests__ folder
+In this folder there are component tests.
 
 # Stargazers Project
-
+## Search screen
+The first screen shows an input text for the username and a select for choose a repository. 
+<img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=250 />
+The form is controlled by react-hook-form and validate with yup library so If you try to send data required empty, you can see an error message. Also error from API are managed. 
+Until username input is empty or you fill a username without repository, the select is inactive. 
 
 
 Technical choise
