@@ -10,8 +10,12 @@ export default function UserInfo({userInfo, users}: IUserInfo) {
     <View style={resultScreenStyles.userInfoContainer}>
       <Avatar url={userInfo?.avatar_url} size={90} />
       <View style={resultScreenStyles.userInfoRightContainer}>
-        <Text style={resultScreenStyles.title}>{userInfo?.name}</Text>
-        <Text style={resultScreenStyles.description}>{userInfo?.bio}</Text>
+        <Text style={resultScreenStyles.title} testID="title">
+          {userInfo?.name}
+        </Text>
+        <Text style={resultScreenStyles.description} testID="description">
+          {userInfo?.bio}
+        </Text>
         <View style={resultScreenStyles.starsContainer}>
           <Stars starsNumber={users} />
         </View>

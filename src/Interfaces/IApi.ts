@@ -29,7 +29,7 @@ export interface IPermission {
 
 export interface IOwner {
   login: string;
-  id: 1;
+  id: number;
   node_id: string;
   avatar_url: string;
   gravatar_id: string;
@@ -147,13 +147,13 @@ export interface ILicense {
 
 export interface IUserInformations extends IOwner {
   name: string;
-  company: string;
+  company: string | null;
   blog: string;
   location: string;
   email: string;
-  hireable: boolean;
+  hireable: boolean | null;
   bio: string;
-  twitter_username: string;
+  twitter_username: string | null;
   public_repos: number;
   public_gists: number;
   followers: number;

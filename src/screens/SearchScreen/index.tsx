@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
-import {useForm} from 'react-hook-form';
-import {SafeAreaView, View, Image} from 'react-native';
+import {useController, useForm} from 'react-hook-form';
+import {SafeAreaView, View, Image, TextInput} from 'react-native';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {IDataForm} from '../../interfaces/IDataForm';
-import Input from '../../components/Input';
 import useValidationForm from './useValidationForm';
 import useSearchScreen from './useSearchScreen';
 import ErrorMessage from '../../components/ErrorMessage';
-import searchScreenStyles, {dropdownStyle} from './style';
+import searchScreenStyles, {dropdownStyle, inputStyles} from './style';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronUp, faChevronDown} from '@fortawesome/free-solid-svg-icons';
 import SelectDropdown from 'react-native-select-dropdown';
@@ -33,7 +32,12 @@ export default function SearchScreen(): JSX.Element {
   });
   //component logic
   const {onSubmit, starredRepoFromUser, networkError} = useSearchScreen(watch);
-
+  //username input controller
+  const {field} = useController({
+    control,
+    defaultValue: '',
+    name: 'username',
+  });
   return (
     <SafeAreaView style={searchScreenStyles.container}>
       <View>
@@ -42,13 +46,18 @@ export default function SearchScreen(): JSX.Element {
           style={searchScreenStyles.logo}
         />
         <ErrorMessage error={networkError} />
-        <Input
-          name="username"
-          control={control}
-          placeholder="Insert username *"
+        <TextInput
+          value={field.value}
+          onChangeText={field.onChange}
+          placeholder={'Insert username *'}
+          placeholderTextColor={theme.colors.lightGray}
+          style={
+            inputStyles(
+              focusedUsername ? theme.colors.blue : theme.colors.white,
+            ).input
+          }
           onFocus={() => setFocusedUsername(true)}
           onBlur={() => setFocusedUsername(false)}
-          focused={focusedUsername}
         />
         <ErrorMessage error={errors.username?.message} />
 
