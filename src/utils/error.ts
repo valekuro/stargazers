@@ -1,5 +1,9 @@
 import {AxiosError, AxiosResponse} from 'axios';
-
+/**
+ * Manage API message error
+ * @param error
+ * @returns
+ */
 const messageError = (error: AxiosError) => {
   // The request was made and the server responded with a status code
   // that falls out of the range of 2xx

@@ -1,6 +1,8 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
-
+/**
+ * SearchScreen generic screen style
+ */
 const searchScreenStyles = StyleSheet.create({
   container: {
     display: 'flex',
@@ -13,6 +15,11 @@ const searchScreenStyles = StyleSheet.create({
   },
 });
 
+/**
+ * Dropdown search style
+ * @param disabled
+ * @returns
+ */
 export const dropdownStyle = (disabled: boolean) =>
   StyleSheet.create({
     dropdownContainer: {
@@ -52,6 +59,12 @@ export const dropdownStyle = (disabled: boolean) =>
     },
     dropdownRowTextStyle: {color: theme.colors.white, textAlign: 'center'},
   });
+
+/**
+ * Username input style
+ * @param color
+ * @returns
+ */
 export const inputStyles = (color: string) =>
   StyleSheet.create({
     input: {

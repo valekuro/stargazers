@@ -1,5 +1,10 @@
 import {StyleSheet} from 'react-native';
 
+/**
+ * Avatar style
+ * @param size
+ * @returns
+ */
 const avatarStyles = (size: number) =>
   StyleSheet.create({
     imageContainer: {

@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
 
+/**
+ * Empty section style
+ */
 export const emptyStyle = StyleSheet.create({
   container: {
     display: 'flex',

@@ -1,11 +1,17 @@
 import Animated from 'react-native-reanimated';
 
+/**
+ * Card interface
+ */
 export interface ICard {
   title?: string;
   avatar?: string;
   description?: string;
 }
 
+/**
+ * CircolarCarouselListItem interface
+ */
 export interface ICircolarCarouselListItem {
   src: string;
   index: number;
@@ -13,6 +19,9 @@ export interface ICircolarCarouselListItem {
   setSelectedUser: any;
 }
 
+/**
+ * CircularCarousel interface
+ */
 export interface ICircularCarousel {
   data: string[];
   setSelectedUser: React.Dispatch<React.SetStateAction<number>>;

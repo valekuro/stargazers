@@ -2,7 +2,11 @@ import React from 'react';
 import {Image, Text, View} from 'react-native';
 import {IStars} from './IStars';
 import starStyle from './style';
-
+/**
+ * Stars component shows the number of stargazers in result screen
+ * @param starsNumber
+ * @returns
+ */
 export default function Stars({starsNumber}: IStars) {
   return (
     <View style={starStyle.container}>

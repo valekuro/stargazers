@@ -1,6 +1,8 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
-
+/**
+ * ErrorMessage style
+ */
 const errorTextStyle = StyleSheet.create({
   text: {
     padding: 5,

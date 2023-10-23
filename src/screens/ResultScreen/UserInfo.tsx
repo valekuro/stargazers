@@ -4,7 +4,12 @@ import Avatar from '../../components/Avatar';
 import Stars from '../../components/Stars';
 import {IUserInfo} from './IResultScreen';
 import {resultScreenStyles} from './style';
-
+/**
+ * UserInfo component shows the info of the user searched in ResultScreen
+ * @param userInfo
+ * @param users
+ * @returns
+ */
 export default function UserInfo({userInfo, users}: IUserInfo) {
   return (
     <View style={resultScreenStyles.userInfoContainer}>

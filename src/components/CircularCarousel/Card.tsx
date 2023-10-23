@@ -4,7 +4,7 @@ import Avatar from '../Avatar';
 import carouselStyle from './style';
 import {ICard} from './ICircularCarousel';
 /**
- * Card component is the user datail card open after choose a user in carousel from results
+ * Card component is the user stargazer detail card
  * @param title: usually contains the username
  * @param avatar: usually contains the user image
  * @param description: usually contains the github link

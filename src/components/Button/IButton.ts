@@ -1,5 +1,10 @@
+import {GestureResponderEvent} from 'react-native';
+
+/**
+ * Button interface
+ */
 export interface IButton {
   label: string;
-  onPress?: ((event: any) => void) | undefined;
+  onPress?: ((event: GestureResponderEvent) => void) | undefined;
   disabled: boolean;
 }

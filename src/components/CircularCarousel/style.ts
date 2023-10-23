@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
 
+/**
+ * Carousel style
+ * @param listItemWidth
+ * @returns
+ */
 const carouselStyle = (listItemWidth?: number) =>
   StyleSheet.create({
     containerColumnCard: {

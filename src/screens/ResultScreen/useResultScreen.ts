@@ -3,7 +3,11 @@ import {getInformationsByUsername} from '../../api/api';
 import {IOwner, IUserInformations} from '../../interfaces/IApi';
 import {IRouteResultScreen} from '../../types/RootStackParamList';
 import messageError from '../../utils/error';
-
+/**
+ * ResultScreen logic
+ * @param route
+ * @returns
+ */
 export default function useResultScreen(route: IRouteResultScreen) {
   const [images, setImages] = useState<string[]>([]);
   const [userInfo, setUserInfo] = useState<IUserInformations>();

@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
 
+/**
+ * Star style
+ */
 const starStyle = StyleSheet.create({
   container: {
     display: 'flex',

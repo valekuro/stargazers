@@ -6,9 +6,6 @@ import carouselStyle from './style';
 import {ICircularCarousel} from './ICircularCarousel';
 /**
  * CircularCarousel component is built started to a FlatList component.
- * Instead of Carousel or ScrollView I would have gone with the FlatList alternative anyway,
- * because performance reason due to items renders lazily. Maybe, I could have many rows from api.
- * nb.contentContainerStyle has inline style for rendering reasons
  * @param data: all data results
  * @param usersInformation
  * @param dataSearch

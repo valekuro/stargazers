@@ -7,7 +7,7 @@ npm version: 9.8.1
 - [Overview](#overview)
 - [Libraries](#libraries)
 - [How to install](#install)
-- [Folder Structure](#folder)
+- [Folders Structure](#folder)
 - [Stargazers Project](#project)
 
 # Overview
@@ -19,10 +19,10 @@ The following libraries are used for this application:
 * [react-hook-form](https://react-hook-form.com/): Library used to manage form in React
 * [yup](https://github.com/jquense/yup): Yup is a schema builder used to validate form
 * [fontAwesome](https://fontawesome.com/icons): The most popular web icon library
-* [react-navigation](https://reactnavigation.org/): Library used to allow navigation between screen inside the app
+* [react-navigation](https://reactnavigation.org/): Library used to allow navigation between screens inside the app
 * [react-native-screens](https://github.com/software-mansion/react-native-screens): It is not designed to be used as a standalone library but is a dependency of react-navigation.
 * [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context): It is a library for handling safe area insets in React Native applications. In this project it is used as a dependency of react-navigation.
-* [react-native-select-dropdown](https://www.npmjs.com/package/react-native-select-dropdown): This library is usefull to create a search dropdown
+* [react-native-select-dropdown](https://www.npmjs.com/package/react-native-select-dropdown): Search dropdown library
 * [react-native-reanimated](https://www.npmjs.com/package/react-native-reanimated): It is an animated library API that support gesture based interaction
 * [axios](https://axios-http.com/docs/intro): Axios is a promise-based HTTP Client for node.js and the browser. It is used to make HTTP request.
 * [ESLint](https://eslint.org/): ESLint statically analyzes your code to quickly find problems.
@@ -33,10 +33,10 @@ To run the project, do the following steps:
 2. On your terminal run `git clone https://github.com/valekuro/stargazers.git`
 3. In the project folder run `npm i`
 4. Connect a phone or use an emulator
-5. Finally run `npx react-native run-android` to run application on Android device and enjoy!
+5. Finally run `npx react-native run-android` or `npx react-native run-ios` to run application on the device and enjoy!
 6. If you want start tests, run `npm test`
 
-# Folder
+# Folders
 In this section there is the folder structure:
 
 ```bash
@@ -48,6 +48,7 @@ In this section there is the folder structure:
 │   │   ├───CircularCarousel
 │   │   ├───EmptySection
 │   │   ├───ErrorMessage
+│   │   ├───Navigation
 │   │   └───Stars
 │   ├───interfaces
 │   ├───screens
@@ -59,31 +60,35 @@ In this section there is the folder structure:
 └───__tests__
 ```
 ## src folder
-### Api folder
+### Api
 In this folder you can find functions for GitHub API calls, in particular:
-* getUserRepository: giving a username, it get his repositories;
+* getUserRepository: giving a username, it gets his repositories;
 * getInformationsByUsername: get all informations about a specific user;
 * getStargazers: get the list of users who have added a specific repository to their favourite;
 
-### Components folder
+### Components
 In this folder there are the main components of the application. These components will make up the screens.  
 Each component folder contains at least two of these files:
 * style.ts: StyleSheet component
 * index.tsx: JSX component
 * I[Component].ts: specific component types
 * use[Component].ts: personalized hook that contains the component logic
-* other components used only in the main component: for example CircularCarousel component contains other secondary component used only for the component purpose.
+* other components used only in the main component.
+Each component is commented using jsdoc.
 
-### Interfaces folder
-The folder contains API interfaces and form interfaces. I choose to put this interfaces in an external folder because this types are called everywhere in the app.
+### Interfaces
+The folder contains API interfaces and form interfaces called everywhere in the app.
 
-### Screens folder
+### Screens
 It contains the app screens. The folder use the same file logic see in Components folder. 
-## Theme folder
+### Theme
 The folder contains theme.ts file whit colors and borderRadius used in the app. This folder could contains all styles in common between components.
-## __tests__ folder
+### __tests__
 In this folder there are component tests realized with a JavaScript Testing Framework called Jest.
-
+### Types
+The folder contains the application types, in this case you can find navigation types.
+### Utils
+In this folder you can find generic functions. For this application, utils contains function to manage api error all over the app.
 # Stargazers Project
 ## Search screen
 The first screen shows an input text for the username and a select for choose a repository. The form is controlled by react-hook-form and validate with yup library so If you try to send data required empty, you can see an error message.

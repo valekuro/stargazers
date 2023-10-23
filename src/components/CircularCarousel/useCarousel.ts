@@ -7,24 +7,22 @@ import {
 import {ICircolarCarouselListItem} from './ICircularCarousel';
 
 /**
- * I used Pick instead of Partial because with partial every item can be undefined so I could add
- * some additional code to control if the variable exists, then because I have a best control of prop,
- * I'm sure that I can take only index and contentOffset
+ * useCarousel manage the Carousel logic
  * @param index
  * @param contentOffset
- * @returns {rStyle, listItemWidth}
+ * @returns {animatedStyle, listItemWidth}
  */
 export default function useCarousel({
   index,
   contentOffset,
 }: Pick<ICircolarCarouselListItem, 'index' | 'contentOffset'>) {
   //the purpose is to see 5 circular items at time in the carousel, but
-  //it dipends on windows dimension, so I take windows width divided by
+  //it dipends on screen dimension, so I take screen width divided by
   //the number of users I want to see on screen
   const {width: WindowsWidth} = Dimensions.get('window');
   const listItemWidth: number = WindowsWidth / 5;
   //style function to animate carousel using react-native-reanimated hook
-  const rStyle = useAnimatedStyle(() => {
+  const animatedStyle = useAnimatedStyle(() => {
     const inputRange = [
       (index - 2) * listItemWidth,
       (index - 1) * listItemWidth,
@@ -80,7 +78,7 @@ export default function useCarousel({
   });
 
   return {
-    rStyle,
+    animatedStyle,
     listItemWidth,
   };
 }

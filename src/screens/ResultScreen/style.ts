@@ -1,6 +1,8 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
-
+/**
+ * ResultScreen style
+ */
 export const resultScreenStyles = StyleSheet.create({
   container: {
     display: 'flex',

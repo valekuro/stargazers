@@ -1,6 +1,11 @@
 import {StyleSheet} from 'react-native';
 import {theme} from '../../theme/theme';
 
+/**
+ * Button style
+ * @param disabled
+ * @returns
+ */
 const buttonStyle = (disabled: boolean) =>
   StyleSheet.create({
     container: {

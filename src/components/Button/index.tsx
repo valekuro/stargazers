@@ -4,7 +4,7 @@ import {IButton} from './IButton';
 import buttonStyle from './style';
 /**
  * Button component: to better improve a customization, I prefer to use TouchableHighlight.
- * Also I prefer TouchableHighlight instead of TouchableOpacity for emphasizes the press
+ * Is used TouchableHighlight instead of TouchableOpacity for emphasizes the press
  * effect by changing the background color
  * @param label
  * @param onPress

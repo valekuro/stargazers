@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import {IErrorMessage} from './IErrorMessage';
 import errorTextStyle from './style';
 /**
- * ErrorMessage component
+ * ErrorMessage component used to show form error or API error
  * @param error
  * @returns
  */

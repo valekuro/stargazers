@@ -9,7 +9,7 @@ import {AxiosError} from 'axios';
 import {UseFormWatch} from 'react-hook-form/dist/types/form';
 import messageError from '../../utils/error';
 /**
- * this personalized hook manage all SearchScreen logic
+ * this personalized hook manage SearchScreen logic
  * @params watch
  * @returns
  */

@@ -18,11 +18,11 @@ export default function CircolarCarouselListItem({
   contentOffset,
   setSelectedUser,
 }: ICircolarCarouselListItem): JSX.Element {
-  const {rStyle, listItemWidth} = useCarousel({index, contentOffset});
+  const {animatedStyle, listItemWidth} = useCarousel({index, contentOffset});
   return (
     <TouchableOpacity onPress={() => setSelectedUser(index)} testID="listitem">
       <Animated.View
-        style={[carouselStyle(listItemWidth).animatedView, rStyle]}>
+        style={[carouselStyle(listItemWidth).animatedView, animatedStyle]}>
         <Image
           source={{uri: `${src}`}}
           style={carouselStyle(listItemWidth).roundedImage}

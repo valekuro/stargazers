@@ -8,7 +8,11 @@ import ErrorMessage from '../../components/ErrorMessage';
 import UserInfo from './UserInfo';
 import {resultScreenStyles} from './style';
 import EmptySection from '../../components/EmptySection';
-
+/**
+ * ResultScreen shows Stargazers or empty screen
+ * @param route
+ * @returns
+ */
 export default function ResultScreen(route: TResultScreen) {
   const [selectedUser, setSelectedUser] = useState<number>(0);
   const {width: WindowsWidth} = Dimensions.get('window');
