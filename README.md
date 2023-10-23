@@ -11,9 +11,11 @@ npm version: 9.8.1
 - [Stargazers Project](#project)
 
 # Overview
-The project is a React Native application (using Typescript) that through the Github API allows you to view the list of stargazers in a repository. After insert an existing username and a repository, the app will give you information about the list of users who have added the repository to their favourite.
+Stargazers project is a mobile application that allows you to get the list of users who have added a certain repository to their favourite.  
+The application is realized using React Native with Typescript.
 
 # Libraries
+The following libraries are used for this application:  
 * [react-hook-form](https://react-hook-form.com/): Library used to manage form in React
 * [yup](https://github.com/jquense/yup): Yup is a schema builder used to validate form
 * [fontAwesome](https://fontawesome.com/icons): The most popular web icon library
@@ -30,8 +32,9 @@ To run the project, do the following steps:
 1. Install node (version 18.18.2)
 2. On your terminal run `git clone https://github.com/valekuro/stargazers.git`
 3. In the project folder run `npm i`
-4. Finally run `npx react-native run-android` and enjoy!
-5. If you want start tests, run `npm test`
+4. Connect a phone or use an emulator
+5. Finally run `npx react-native run-android` to run application on Android device and enjoy!
+6. If you want start tests, run `npm test`
 
 # Folder
 In this section there is the folder structure:
@@ -58,12 +61,13 @@ In this section there is the folder structure:
 ## src folder
 ### Api folder
 In this folder you can find functions for GitHub API calls, in particular:
-* getUserRepository: get all user repositories;
+* getUserRepository: giving a username, it get his repositories;
 * getInformationsByUsername: get all informations about a specific user;
 * getStargazers: get the list of users who have added a specific repository to their favourite;
 
 ### Components folder
-In this folder there are the main application components to guarantee the reusing code. Each folder component could contain:
+In this folder there are the main components of the application. These components will make up the screens.  
+Each component folder contains at least two of these files:
 * style.ts: StyleSheet component
 * index.tsx: JSX component
 * I[Component].ts: specific component types
@@ -74,7 +78,7 @@ In this folder there are the main application components to guarantee the reusin
 The folder contains API interfaces and form interfaces. I choose to put this interfaces in an external folder because this types are called everywhere in the app.
 
 ### Screens folder
-It contains the app screens. The folder use the same logic see in Components folder. 
+It contains the app screens. The folder use the same file logic see in Components folder. 
 ## Theme folder
 The folder contains theme.ts file whit colors and borderRadius used in the app. This folder could contains all styles in common between components.
 ## __tests__ folder
@@ -87,7 +91,7 @@ The first screen shows an input text for the username and a select for choose a 
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/hook-form-error.jpeg?raw=true" width=200>
 </p>
-Also errors from API are managed, I choose to use the default messages but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active. In dropdown you can also search the repo in list.
+As you can see in one of the images below, errors from API are managed. I choose to use the default messages but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active. In dropdown you have an input to search a specific repository in list.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=200>
@@ -96,8 +100,8 @@ Also errors from API are managed, I choose to use the default messages but you c
 </p>
 
 ## Result screen
-To show stargazers list, I prefer to use a FlatList instead of Scrollview because FlatList is more efficient: it uses a more memory-efficient data structure to store the list items and it only renders the items that are currently visible on the screen. Then I turned the list into a carousel applying style and animations with the library react-native-reanimated. 
-Clicking on an avatar you can see information such as photo, name and git url.
+To show stargazers list, I prefer to use a FlatList instead of Scrollview because FlatList is more efficient: it only renders the items that are currently visible on the screen. Then I turned the list into a carousel applying style and animations with the library react-native-reanimated. 
+Clicking on an avatar you can see informations such as photo, name and git url.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/result-screen.jpeg?raw=true" width=200>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/no-stargazers-found.jpeg?raw=true" width=200 />
