@@ -1,6 +1,5 @@
 /**
- * theme provide a way to have all colors (only colors in this case..)
- * in a single place.
+ * theme provide a way to have all common style in a single place.
  */
 export const theme = {
   colors: {
