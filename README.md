@@ -81,11 +81,11 @@ The folder contains API interfaces and form interfaces called everywhere in the 
 ### Screens
 It contains the app screens. The folder use the same file logic see in Components folder. 
 ### Theme
-The folder contains theme.ts file whit colors and borderRadius used in the app. This folder could contains all styles in common between components.
+The folder contains theme.ts file with colors and borderRadius used in the app. This folder could contains all styles in common between components.
 ### __tests__
-In this folder there are component tests realized with a JavaScript Testing Framework called Jest.
+Tests are written in Jest and React Native Testing Library.
 ### Types
-The folder contains the application types, in this case you can find navigation types.
+The folder contains the common application types, in this case you can find navigation types.
 ### Utils
 In this folder you can find generic functions. For this application, utils contains function to manage api error all over the app.
 # Stargazers Project
@@ -95,7 +95,7 @@ The first screen shows an input text for the username and a select for choose a 
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-block.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/hook-form-error.jpeg?raw=true" width=200>
 </p>
-As you can see in one of the images below, errors from API are managed. I choose to use the default messages but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select become active. In dropdown you have an input to search a specific repository in list.
+As you can see in one of the images below, the errors from API are managed. I choose to use the default messages but you can choose text you want. Until username input is empty or you fill a username without repository, the select is inactive. If the username has repositories, the select becomes active. In dropdown you have an input to search a specific repository in list.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/api-error.jpeg?raw=true" width=200 />
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/select-unlock.jpeg?raw=true" width=200>
@@ -104,7 +104,7 @@ As you can see in one of the images below, errors from API are managed. I choose
 </p>
 
 ## Result screen
-To show stargazers list, I prefer to use a FlatList instead of Scrollview because FlatList is more efficient: it only renders the items that are currently visible on the screen. Then I turned the list into a carousel applying style and animations with the library react-native-reanimated. 
+To show stargazers list, I prefer to use a FlatList instead of Scrollview because FlatList is more efficient. Then I turned the list into a carousel applying style and animations with the library react-native-reanimated. 
 Clicking on an avatar you can see informations such as photo, name and git url.
 <p align='center'>
 <img src="https://github.com/valekuro/stargazers/blob/main/app_screen/result-screen.jpeg?raw=true" width=200>
