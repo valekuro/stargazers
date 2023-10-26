@@ -62,9 +62,9 @@ In this section there is the folder structure:
 ## src folder
 ### Api
 For this application [APIs Github](https://docs.github.com/en/rest/repos?apiVersion=2022-11-28) have been used. Here you can find functions for these APIs calls, in particular:
-* getUserRepository[/users/{username}/repos](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-the-authenticated-user): giving a username, it gets his repositories;
-* getInformationsByUsername[/users/{username}](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-a-user): get all informations about a specific user;
-* getStargazers[/repos/{owner}/{repo}/stargazers](https://docs.github.com/en/rest/activity/starring?apiVersion=2022-11-28#list-stargazers): get the list of users who have added a specific repository to their favourite;
+* getUserRepository [/users/{username}/repos](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-the-authenticated-user): giving a username, it gets his repositories;
+* getInformationsByUsername [/users/{username}](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-a-user): get all informations about a specific user;
+* getStargazers [/repos/{owner}/{repo}/stargazers](https://docs.github.com/en/rest/activity/starring?apiVersion=2022-11-28#list-stargazers): get the list of users who have added a specific repository to their favourite;
 ### Components
 In this folder there are the main components of the application. These components will make up the screens.  
 Each component folder contains at least two of these files:
@@ -72,7 +72,7 @@ Each component folder contains at least two of these files:
 * index.tsx: JSX component
 * I[Component].ts: specific component types
 * use[Component].ts: personalized hook that contains the component logic
-* other components used only in the main component.    
+* other components used only in the main component.  \  
 Each component is commented using jsdoc.
 
 ### Interfaces
