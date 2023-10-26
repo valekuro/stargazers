@@ -72,7 +72,7 @@ Each component folder contains at least two of these files:
 * index.tsx: JSX component
 * I[Component].ts: specific component types
 * use[Component].ts: personalized hook that contains the component logic
-* other components used only in the main component.  \  
+* other components used only in the main component.  </br>
 Each component is commented using jsdoc.
 
 ### Interfaces
