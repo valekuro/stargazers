@@ -5,11 +5,11 @@ npm version: 9.8.1
 ## Table of Contents
 
 - [Overview](#overview)
-- [Preliminary analysis](#analysis)
+- [Preliminary analysis](#preliminary-analysis)
 - [Libraries](#libraries)
 - [How to install](#install)
 - [Folders Structure](#folders)
-- [Stargazers Project](#project)
+- [Stargazers Project](#stargazers-project)
 
 # Overview
 Stargazers project is a mobile application that allows you to get the list of users who have added a certain repository to their favourite.  
