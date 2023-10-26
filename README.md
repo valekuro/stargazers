@@ -5,7 +5,7 @@ npm version: 9.8.1
 ## Table of Contents
 
 - [Overview](#overview)
-- [Preliminary considerations](#requirements)
+- [Preliminary analysis](#requirements)
 - [Libraries](#libraries)
 - [How to install](#install)
 - [Folders Structure](#folder)
@@ -15,7 +15,7 @@ npm version: 9.8.1
 Stargazers project is a mobile application that allows you to get the list of users who have added a certain repository to their favourite.  
 The application is realized using React Native with Typescript.
 
-# Preliminary considerations
+# Preliminary analysis
 Based on the specifications provided to me and my personal experience, I will draft some User Stories that will usefull to make some technical considerations. User Story consists of a short description written from user's point of view, with natural language.  
 US1. As a user I want to get repositories related to a certain username so I can choose one of the available repositories.  
 US.2 As a user I want to see if there is some error so I can understand that something went wrong.  
