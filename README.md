@@ -16,7 +16,7 @@ Stargazers project is a mobile application that allows you to get the list of us
 The application is realized using React Native with Typescript.
 
 # Preliminary analysis
-Based on the specifications provided to me and my personal experience, I will draft some User Stories that will usefull to make some technical considerations. User Story consists of a short description written from user's point of view, with natural language.  
+Based on the specifications provided to me and my personal experience, I will draft some User Stories that will usefull to make some technical considerations.  
 US1. As a user I want to get repositories related to a certain username so I can choose one of the available repositories.  
 US.2 As a user I want to see if there is some error so I can understand that something went wrong.  
 US.3 As a user I want the list of stargazers so I can see the stargazers user.  
