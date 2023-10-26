@@ -5,7 +5,7 @@ npm version: 9.8.1
 ## Table of Contents
 
 - [Overview](#overview)
-- [Preliminary analysis](#requirements)
+- [Preliminary analysis](#analysis)
 - [Libraries](#libraries)
 - [How to install](#install)
 - [Folders Structure](#folder)
