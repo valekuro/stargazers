@@ -33,7 +33,7 @@ To run the project, do the following steps:
 2. On your terminal run `git clone https://github.com/valekuro/stargazers.git`
 3. In the project folder run `npm i`
 4. Connect a phone or use an emulator
-5. Finally run `npx react-native run-android` or `npx react-native run-ios` to run application on the device and enjoy!
+5. Finally run `npx react-native run-android` or `npx react-native run-ios` to run application on the device
 6. If you want start tests, run `npm test`
 
 # Folders
@@ -61,11 +61,10 @@ In this section there is the folder structure:
 ```
 ## src folder
 ### Api
-In this folder you can find functions for GitHub API calls, in particular:
-* getUserRepository: giving a username, it gets his repositories;
-* getInformationsByUsername: get all informations about a specific user;
-* getStargazers: get the list of users who have added a specific repository to their favourite;
-
+For this application [APIs Github](https://docs.github.com/en/rest/repos?apiVersion=2022-11-28) have been used. Here you can find functions for these APIs calls, in particular:
+* getUserRepository[/users/{username}/repos](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-the-authenticated-user): giving a username, it gets his repositories;
+* getInformationsByUsername[/users/{username}](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-a-user): get all informations about a specific user;
+* getStargazers[/repos/{owner}/{repo}/stargazers](https://docs.github.com/en/rest/activity/starring?apiVersion=2022-11-28#list-stargazers): get the list of users who have added a specific repository to their favourite;
 ### Components
 In this folder there are the main components of the application. These components will make up the screens.  
 Each component folder contains at least two of these files:
