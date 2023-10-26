@@ -8,7 +8,7 @@ npm version: 9.8.1
 - [Preliminary analysis](#analysis)
 - [Libraries](#libraries)
 - [How to install](#install)
-- [Folders Structure](#folder)
+- [Folders Structure](#folders)
 - [Stargazers Project](#project)
 
 # Overview
